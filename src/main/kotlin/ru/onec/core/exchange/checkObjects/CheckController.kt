@@ -1,16 +1,17 @@
 package ru.onec.core.exchange.checkObjects
 
-import com.github.salomonbrys.kodein.Kodein
+import org.rapidoid.http.Req
 
 /**
  * Created by thelamon on 27.03.16.
  */
 
-class CheckController(private val kodein: Kodein) {
-    val checkService: CheckService = kodein.instance()
+class CheckController(val checkService: CheckService) {
+    fun check(req: Req): String {
+        val source = req.param("source", "")
+        val target = req.param("target", "")
 
-    fun check(): String {
-        val result = checkService.check()
+        val result = checkService.check(source, target)
         return result
     }
 }
