@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = "1.0.1-2"
+    ext.kotlin_version = "1.0.2"
 
     repositories {
         jcenter()
@@ -24,7 +24,7 @@ repositories {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "2.12"
+    gradleVersion = "2.13"
 }
 
 dependencies {
@@ -33,12 +33,13 @@ dependencies {
 
     compile "ch.qos.logback:logback-classic:1.1.7"
 
-    compile "com.zaxxer:HikariCP:2.4.5"
+    compile "com.zaxxer:HikariCP:2.4.6"
     compile "org.postgresql:postgresql:9.4.1208.jre7"
-    compile "com.github.andrewoma.kwery:core:0.9"
+    compile "com.github.andrewoma.kwery:core:0.11"
 
-    compile "com.github.salomonbrys.kodein:kodein:2.6.0"
-    compile "org.rapidoid:rapidoid-http-fast:5.0.12"
+    compile "com.github.salomonbrys.kodein:kodein:2.7.1"
+    compile "org.rapidoid:rapidoid-http-fast:5.1.6"
+    compile "org.rapidoid:rapidoid-http-server:5.1.6"
 
     compile 'nl.komponents.kovenant:kovenant:3.2.2'
 }

@@ -4,7 +4,8 @@ import com.github.salomonbrys.kodein.Kodein
 import com.github.salomonbrys.kodein.singleton
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
-import org.rapidoid.http.fast.On
+import org.rapidoid.http.ReqHandler
+import org.rapidoid.setup.On
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import kotlin.reflect.KClass
@@ -46,7 +47,7 @@ object Main {
     @JvmStatic
     fun main(args: Array<String>) {
         val checkController = kodein.instance<CheckController>()
-        On.get("/check").html<String> { req -> checkController.check(req) }
+        On.get("/check").html(ReqHandler { req -> checkController.check(req) })
     }
 }
 
